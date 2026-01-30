@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* =====================
+   BACKGROUND (LIGHT GRAY)
+===================== */
+body {
+  min-height: 100vh;
+  background: #e4e9f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  overflow: hidden;
+}
+
+/* =====================
+   SCENE
+===================== */
+.scene {
+  width: 380px;
+}
+
+/* =====================
+   CARD (LIGHT NEUMORPHISM)
+===================== */
+.card {
+  position: relative;
+  padding: 40px;
+  border-radius: 28px;
+
+  background: #e4e9f0;
+
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+
+  /* soft neumorphic shadows */
+  box-shadow:
+    18px 18px 36px rgba(163,177,198,0.6),
+   -18px -18px 36px rgba(255,255,255,0.9);
+}
+
+/* subtle highlight */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: radial-gradient(
+    300px at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.6),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+/* =====================
+   TITLE
+===================== */
+h2 {
+  text-align: center;
+  color: #4b5563;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 26px;
+  transform: translateZ(50px);
+}
+
+/* =====================
+   INPUTS (DEEP NEUMORPHIC)
+===================== */
+.field {
+  margin-bottom: 20px;
+  transform: translateZ(35px);
+}
+
+.field input {
+  width: 100%;
+  height: 54px;
+  padding: 0 20px;
+  border-radius: 20px;
+
+  background: #e4e9f0;
+  border: none;
+  outline: none;
+
+  color: #374151;
+  font-size: 14px;
+
+  /* pressed-in effect */
+  box-shadow:
+    inset 8px 8px 16px rgba(163,177,198,0.75),
+    inset -8px -8px 16px rgba(255,255,255,0.9);
+
+  transition: box-shadow 0.25s ease;
+}
+
+.field input::placeholder {
+  color: #9ca3af;
+}
+
+.field input:focus {
+  box-shadow:
+    inset 4px 4px 8px rgba(163,177,198,0.8),
+    inset -4px -4px 8px rgba(255,255,255,1);
+}
+
+/* =====================
+   BUTTON (RAISED)
+===================== */
+button {
+  width: 100%;
+  height: 54px;
+  margin-top: 10px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+
+  background: #e4e9f0;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 500;
+
+  transform: translateZ(60px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  box-shadow:
+    8px 8px 16px rgba(163,177,198,0.75),
+   -8px -8px 16px rgba(255,255,255,0.95);
+}
+
+button:hover {
+  transform: translateZ(72px);
+}
+
+button:active {
+  transform: translateZ(40px);
+  box-shadow:
+    inset 6px 6px 12px rgba(163,177,198,0.75),
+    inset -6px -6px 12px rgba(255,255,255,0.95);
+}
